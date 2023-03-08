@@ -17,6 +17,7 @@
     <modules>
         <module>customer</module>
         <module>product</module>
+        <module>transactions</module>
     </modules>
     
     <properties>
@@ -39,12 +40,12 @@
     
     <dependencies>
         
-        <!-- <dependency>
+        <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>  
         
-         <dependency>
+        <!-- <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-config</artifactId>
         </dependency>-->

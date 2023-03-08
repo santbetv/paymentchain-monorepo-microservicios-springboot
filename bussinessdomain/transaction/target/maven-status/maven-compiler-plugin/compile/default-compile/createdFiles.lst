@@ -1,4 +1,0 @@
-com/paymentchain/transaction/TransactionApplication.class
-com/paymentchain/transaction/controller/TransactionRestController.class
-com/paymentchain/transaction/entities/Transaction.class
-com/paymentchain/transaction/respository/TransactionRepository.class
