@@ -11,7 +11,9 @@ import com.paymentchain.product.service.IProductService;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import java.util.List;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -25,6 +27,7 @@ import org.springframework.web.bind.annotation.PutMapping;
  *
  * @author Santiago Betancur
  */
+@Slf4j
 @RestController
 @RequestMapping("/product")
 public class ProductRestController {
@@ -33,8 +36,12 @@ public class ProductRestController {
     IProductService iProductService;
     
     
+    @Value("${user.role}")
+    private String role;
+    
     @GetMapping()
     public List<Product> findAll() {
+        log.info("Este es un mensaje de información role: -->"+role);
         return iProductService.findAll();
     }
     
