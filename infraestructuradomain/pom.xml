@@ -15,10 +15,18 @@
     <modules>
         <module>eurekaservice</module>
         <module>adminServer</module>
+        <module>configserver</module>
     </modules>
     <properties>
         <spring-cloud-dependencies.version>2021.0.0</spring-cloud-dependencies.version>
     </properties>
+    
+    <dependencies>        
+        
+        
+    </dependencies>
+    
+    
     
     <!--    Allows consolidate and centralized management of deendency version witout adding dependencies
     that are inherit by all children, it is useesfull whe we have a set of porjects that inherit a common parent.-->
