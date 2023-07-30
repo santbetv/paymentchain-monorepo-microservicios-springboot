@@ -36,12 +36,12 @@ public class ProductRestController {
     IProductService iProductService;
     
     
-    @Value("${user.role}")
-    private String role;
+//    @Value("${user.role}")
+//    private String role;
     
     @GetMapping()
     public List<Product> findAll() {
-        log.info("Este es un mensaje de información role: -->"+role);
+//        log.info("Este es un mensaje de información role: -->"+role);
         return iProductService.findAll();
     }
     
