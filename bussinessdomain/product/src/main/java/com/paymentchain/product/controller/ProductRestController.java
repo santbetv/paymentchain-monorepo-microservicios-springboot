@@ -32,9 +32,13 @@ import org.springframework.web.bind.annotation.PutMapping;
 @RequestMapping("/product")
 public class ProductRestController {
     
-    @Autowired
-    IProductService iProductService;
     
+    private final IProductService iProductService;
+
+    @Autowired
+    public ProductRestController(IProductService iProductService) {
+        this.iProductService = iProductService;
+    }
     
 //    @Value("${user.role}")
 //    private String role;
