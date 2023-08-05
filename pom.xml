@@ -63,17 +63,10 @@
             <scope>provided</scope>
         </dependency>
         
-        <!-- Swagger -->
         <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <version>2.7.0</version>
-        </dependency>
-
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger-ui</artifactId>
-            <version>2.7.0</version>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-ui</artifactId>
+            <version>1.6.12</version>
         </dependency>
         
         <dependency>
@@ -117,7 +110,7 @@
                 </executions>
             </plugin>
             <!--Ayuda a que cuando se realice clean and build construya la imagen solo mantener comentado hasta configurar docker-->        
-<!--            <plugin>
+            <!--            <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>${dockerfile-maven-version}</version>                               
