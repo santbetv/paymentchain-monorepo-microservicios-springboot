@@ -22,8 +22,8 @@
     
     <properties>
         <spring-cloud-dependencies.version>2021.0.4</spring-cloud-dependencies.version>  
-        <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>   
-        <org.lombo.version>1.18.24</org.lombo.version>
+        <org.mapstruct.version>1.5.3.Final</org.mapstruct.version>
+        <org.mapstruct-processor>1.5.3.Final</org.mapstruct-processor>   
         <bootstrap.version>3.1.3</bootstrap.version>     
     </properties>
     
@@ -91,20 +91,18 @@
             <groupId>javax.validation</groupId>
             <artifactId>validation-api</artifactId>
             <version>${java-validation.version}</version>
-        </dependency>       
-             
-        <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
-            <optional>true</optional>
-            <version>${org.lombo.version}</version>
-        </dependency>       
+        </dependency>             
         
         <!-- mapper beans -->
         <dependency>
             <groupId>org.mapstruct</groupId>
-            <artifactId>mapstruct-jdk8</artifactId>
+            <artifactId>mapstruct</artifactId>
             <version>${org.mapstruct.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.mapstruct</groupId>
+            <artifactId>mapstruct-processor</artifactId>
+            <version>${org.mapstruct-processor}</version>
         </dependency>
         
         <dependency>
@@ -118,6 +116,41 @@
             <artifactId>javafaker</artifactId>
             <version>1.0.2</version>
         </dependency>
-    </dependencies>  
+    </dependencies>
+    
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <!--Generate mapper-->
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.mapstruct</groupId>
+                            <artifactId>mapstruct-processor</artifactId>
+                            <version>${org.mapstruct.version}</version>
+                        </path>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${org.lombo.version}</version>
+                        </path>
+
+                        <!-- additional annotation processor required as of Lombok 1.18.16 -->
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok-mapstruct-binding</artifactId>
+                            <version>0.2.0</version>
+                        </path>
+                    </annotationProcessorPaths>
+                    
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>    
     
 </project>

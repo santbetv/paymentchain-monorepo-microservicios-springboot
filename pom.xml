@@ -21,7 +21,7 @@
         <postgres.version>42.2.16</postgres.version>
         <java-validation.version>2.0.1.Final</java-validation.version>
         <dockerfile-maven-version>1.4.13</dockerfile-maven-version>
-        <lombok.version>1.18.24</lombok.version>
+        <org.lombo.version>1.18.24</org.lombo.version>
     </properties>
     
     <!-- Definir variables para ejecutar mas facil -->
@@ -59,9 +59,9 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>${lombok.version}</version>
-            <scope>provided</scope>
-        </dependency>
+            <optional>true</optional>
+            <version>${org.lombo.version}</version>
+        </dependency>  
         
         <dependency>
             <groupId>org.springdoc</groupId>
