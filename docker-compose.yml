@@ -56,6 +56,25 @@ services:
     ports:
       - 8762:8762
       
+
+##########################################################################     
+ #api-gateway
+ ##########################################################################
+  apigateway:
+    container_name: id-apigateway
+    image: paymentchain/microservice-docker-apigateway:0.0.1-SNAPSHOT   
+      #All projets will have a variable value  DEUREKA_SERVER this tell where find a registry-discovery server 
+    environment:
+      - JAVA_OPTS=
+         -Xms256M 
+         -Xmx256M
+         -DEUREKA_SERVER=http://registry-discovery:8761/eureka/
+         #-Dspring.cloud.config.server.native.searchLocations=/var/config-data
+    depends_on:
+      - registry-discovery
+    ports:
+      - 8080:8080
+      
  ##########################################################################     
  #product service
  ##########################################################################  
@@ -89,8 +108,9 @@ services:
     depends_on:
       - registry-discovery
       - configuration
-    ports:
-      - 2023:2023
+    ##se comenta para que eureka lo asigne 
+    #ports:
+    #  - 2023:2023
       
  ##########################################################################     
  #transaction service

@@ -110,7 +110,7 @@
                 </executions>
             </plugin>
             <!--Ayuda a que cuando se realice clean and build construya la imagen solo mantener comentado hasta configurar docker-->        
-            <!--            <plugin>
+            <plugin>
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>${dockerfile-maven-version}</version>                               
@@ -124,7 +124,7 @@
                         </goals>
                     </execution>
                 </executions>
-                tu_usuario_dockerhub/nombre_imagen para subir a docker hub
+                <!--tu_usuario_dockerhub/nombre_imagen para subir a docker hub-->
                 <configuration>                       
                     <repository>paymentchain/microservice-docker-${project.artifactId}</repository>
                     <tag>${project.version}</tag>
@@ -132,7 +132,7 @@
                         <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
                 </configuration>
-            </plugin>  -->
+            </plugin>
             
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
